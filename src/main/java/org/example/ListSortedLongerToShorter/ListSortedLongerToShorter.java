@@ -18,18 +18,9 @@ public class ListSortedLongerToShorter {
         originalList.add(123456789);
 
 
-        List<Object> sortedList = originalList.stream().sorted(Comparator.comparingInt(
-                i -> {
-                    String allToString;
-                    if(i instanceof String){
-                        allToString = (String) i;
-                    }else if (i instanceof Integer){
-                        allToString = String.valueOf(i);
-                    }else{
-                        return 0;
-                    }
-                    return allToString.length();}
-        ).reversed()).collect(Collectors.toList());
+        List<String> sortedList = originalList.stream()
+                        .map(Object::toString).sorted(Comparator.comparingInt(
+                String::length).reversed()).toList();
 
     System.out.println(sortedList);
     }

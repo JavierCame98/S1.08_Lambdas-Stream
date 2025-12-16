@@ -3,7 +3,6 @@ package org.example.ListSortedShorterToLonger;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ListSortedShorterToLonger {
 
@@ -18,18 +17,9 @@ public class ListSortedShorterToLonger {
         originalList.add(123456789);
 
 
-        List<Object> sortedList = originalList.stream().sorted(Comparator.comparingInt(
-                i -> {
-                    String allToString;
-                    if(i instanceof String){
-                        allToString = (String) i;
-                    }else if(i instanceof Integer){
-                        allToString = String.valueOf(i);
-                    }else{
-                        return 0;
-                    }
-                    return allToString.length();}
-                )).collect(Collectors.toList());
+        List<String> sortedList = originalList.stream()
+                .map(Object::toString).sorted(Comparator.comparingInt(
+                        String::length)).toList();
 
         System.out.println(sortedList);
     }

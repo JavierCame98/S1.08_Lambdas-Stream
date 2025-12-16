@@ -23,9 +23,8 @@ public class StringList {
             return Collections.emptyList();
         }
 
-        List<String> streamedList = originalList.stream()
-                .filter(s -> s.contains("o"))
+        return originalList.stream()
+                .filter(s -> s.toLowerCase().contains("o"))
                 .toList();
-        return streamedList;
     }
 }

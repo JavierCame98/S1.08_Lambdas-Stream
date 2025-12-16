@@ -28,11 +28,9 @@ public class FilterByOAndSize {
             return Collections.emptyList();
         }
 
-        List<String> filteredList = originalList.stream()
-                .filter(s -> s.contains("o"))
+        return originalList.stream()
+                .filter(s -> s.toLowerCase().contains("o"))
                 .filter(s -> s.length() > 5)
                 .toList();
-
-        return filteredList;
     }
 }

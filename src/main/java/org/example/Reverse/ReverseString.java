@@ -7,8 +7,8 @@ public class ReverseString {
             StringBuilder mutableString = new StringBuilder(string);
             mutableString.reverse();
             return mutableString.toString();
-        });
 
+        });
 
         String originalString = "Hola mundo";
         String reverseString = reverser.reverse(originalString);
